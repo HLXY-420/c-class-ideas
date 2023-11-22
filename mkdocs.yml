@@ -54,6 +54,9 @@ markdown_extensions:
   
 nav:
   - 前言: 'index.md'
+  - 短期尝试: 'workon-list.md'
+  - 'archive':
+    - 初版想法: 'archive/23-11-19-index.md'
 
 
 copyright: |
