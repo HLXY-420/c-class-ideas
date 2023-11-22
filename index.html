@@ -1,0 +1,525 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>一些关于C/C++语言课程的想法</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="default">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cc" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="一些关于C/C++语言课程的想法" class="md-header__button md-logo" aria-label="一些关于C/C++语言课程的想法" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            一些关于C/C++语言课程的想法
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              前言
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="default"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="default" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/HLXY-420/c-class-ideas" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HLXY-420/c-class-ideas
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="一些关于C/C++语言课程的想法" class="md-nav__button md-logo" aria-label="一些关于C/C++语言课程的想法" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    一些关于C/C++语言课程的想法
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/HLXY-420/c-class-ideas" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HLXY-420/c-class-ideas
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          前言
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        前言
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1 背景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2 一些想法
+  </a>
+  
+    <nav class="md-nav" aria-label="2 一些想法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 “程序分析”
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-c" class="md-nav__link">
+    2.2 简化C
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 可视化反馈
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4 一个简单的课程设计想法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3 接下来
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1 背景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2 一些想法
+  </a>
+  
+    <nav class="md-nav" aria-label="2 一些想法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 “程序分析”
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-c" class="md-nav__link">
+    2.2 简化C
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 可视化反馈
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4 一个简单的课程设计想法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3 接下来
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/HLXY-420/c-class-ideas/edit/master/docs/index.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="cc">一些关于C/C++语言课程的想法</h1>
+<h2 id="1">1 背景</h2>
+<p>在某大学的大一C语言课上当着助教，平时主要负责帮助同学解决编程时遇到的问题和困难。半个学期下来，发现了初学者们遇到的问题的一些规律，也与其他学校的朋友交流了一下，发现各处的C/C++课程都存在着一些共同的问题：</p>
+<ol>
+<li><strong>C/C++语言本身的难度：</strong> 这两门语言在接近计算机底层和易于编写上做到了一个不错的平衡，但是这个平衡是针对有经验的程序员而非编程初学者的。漫长的历史使得它们本身的内容越来越复杂，这进一步增加了将它们作为第一门编程语言的学习成本。举个例子，在绝大多数课程上第一个引入的IO，就有scanf、printf、gets、puts等多个功能不同的函数。理解它们并合理地运用之，对新手就已经是一种挑战了。</li>
+<li><strong>课程设计和实施的问题：</strong> 我发现，多数的C/C++课程存在课程与时代脱节和教学与实践脱节的现象。我至今仍未见到一本提到c11或者c++11的国内教科书，许多已被弃用的写法仍然出现在它们中，即使它们的出版/印刷日期就在最近几年。同时，编程也存在这样一个问题：已经学会的人难以重新站在初学者的视角思考。这一点在课程的讲解和实践性质作业的布置上的体现尤其显著，即很少有老师能讲好这门课。</li>
+</ol>
+<p>这两个问题的结果就是，很少有人从大学课堂上学会C/C++，大多数人会选择慕课或者其他资料进行自学。</p>
+<p>然后，根据我对这门课程的理解，给大一年级开设的C/C++课程的主要目的应该是以下两点：</p>
+<ol>
+<li><strong>计算思维和程序设计思维：</strong> 会上C/C++课程的学生，其专业本身也会学到/用到许多编程相关的内容或者工具，对程序理论和设计思想的了解是必要的。C/C++课程作为第一门编程课，自然要担任培养学生计算思维和程序设计思维的角色，为后续的课程打下基础。</li>
+<li><strong>对计算机底层逻辑的了解：</strong> C/C++课程选择这两门语言的原因之一，我认为就是它们与计算机底层设计联系密切，可以为学生之后的操作系统或者体系结构乃至硬件相关的课程作铺垫，一般来说，开设C/C++课程的专业后续都至少会有其中一门课。</li>
+</ol>
+<p>至于学习这两门语言本身，我认为并非这门课程的重点，一来编程语言只要编程范式相同，互相之间的语法差别一般并不显著，迁移学习的成本并不高，二来在实际的应用中，C/C++也并非唯一的主流，编程语言各有各的生态位，对于不打算在这两门语言上深耕的人来说，上面列出的两点远比额外的C/C++知识重要。</p>
+<h2 id="2">2 一些想法</h2>
+<p>基于以上列出和讨论的事项和一些自己或者周围人学习编程的经验，我有了一些对C/C++课程的改进想法。</p>
+<h3 id="21">2.1 “程序分析”</h3>
+<p>在设计程序时，我们一般要同时考虑整体性的程序功能的设计和细节上具体语句/函数等等的组织。一般的C/C++课程主要讲解后者，而前者则更依赖学生在完成题目或者项目时的自行探索。但是实际的编程语言中，各种语句和函数有着相当丰富的用法，衍生出种类繁多的写法，在课程中不可能全部覆盖。因此，我认为，一套描述语句/函数功能并把它们和整体程序的设计联系起来的方法论才是C/C++课程该介绍的。</p>
+<p>一种常见的设计程序的方法，是依据条件设计出程序整体的功能和表示各个现实对象的抽象对象，然后把程序分拆成多个模块，每个模块负责一部分功能。假如把这个想法略作修改，整体程序可以很自然地设想成一个函数，接受对应形式和内容的输出，产生对应的输出。拆分子模块可以改为拆分成许多小函数，复合成为整体程序这个函数。</p>
+<p>另一边，程序中已有的函数显然可以视作函数。而各种语句则类似于符号逻辑中的语句。于是，我们可以把所有的程序都拆分成由函数和逻辑构成，整体程序的本质也可以与细节上具体的函数或者语句等同。从而，每一个引入的语句或者函数都可以被很好地描述与定义，并被学生融入自己的程序中。</p>
+<p>于是，我认为值得引入少量离散数学的内容，比如简单的集合论和数理逻辑，帮助学生从这个角度理解和设计程序。由于这个想法和数学中的分析学的部分内容略有相似，我将其命名为“程序分析”。</p>
+<h3 id="22-c">2.2 简化C</h3>
+<p>前面提到，C/C++语言课程的问题之一，就是C/C++语言本身的难度。但是又因为需要培养学生对计算机底层设计的了解，因此不宜直接换成其他语言，况且一般足够接近硬件的语言，学习曲线都是比较陡峭的。</p>
+<p>对于这种情况，我的想法是制作一个C/C++类库，封装一些辅助宏/函数/容器等内容，使得基于此库编写的C/C++程序可以实现接近python的简洁易懂程度。然后在课程中先教会学生基于此库编写C/C++代码。参考北京市高中技术学考中即有python编程题目，可以认为像python这样的编程语言是绝大多数人都可以学会的，大学生应当至少有与高中生相近的学习能力，那么一门学习难度与python相近的语言应该不会成为困难。</p>
+<p>然后，在每讲完一个专题之后，就要求学生不再使用该库中对应的部分，如果要使用，则需要自己实现。这样直到课程的最后，所有学生都理应学会了如何编写一般意义上的C/C++语言程序。并且因为在学会简化的C/C++语言的过程中，学生们获得了一定的编程能力，因此在逐步返回标准C/C++时，所花费的时间会远小于从头学习C/C++语言的时间，所以这样的课程设计所花费的课时应该并不会超过传统C/C++课程。</p>
+<h3 id="23">2.3 可视化反馈</h3>
+<p>编程语言需要提过大量的实践练习才能掌握，作为一门课程，提供这一点所要依靠的就是布置足够多的实践题目或者项目性质的作业。于是C/C++课程的作业量往往不低，而面对繁多的作业，如果不能调动起学生的兴趣，那么很容易让课程变得无聊且令人反感。于是我轮询了身边人对编程感兴趣的起因，结论就是，要有能看到的成果，提供直观且强度足够的反馈。可以是oj上的排名，也可以是自己写着玩的小程序，等等等等。</p>
+<p>鉴于引入oj并使用排名体系这件事情已经在一些学校的C/C++课程上实施了，在这里主要说我想到的另一个可能的方法。既然要直观的反馈，那么利用计算机学科下与C/C++有些联系的图形学或许会是个不错的方法——提供一个简单的2D渲染引擎，至少像python的海龟画图那样，几行代码下去，图形跃然屏上。更进一步，可以让学生尝试用它构建一些简单的2D游戏，类似一些学校的C语言课程设计作业内容，但是相比于在一学期漫长的课程后才介绍这些内容，在课程的开头便引入，可以直观地让学生看到学会了C/C++，可以用来做什么。</p>
+<h3 id="24">2.4 一个简单的课程设计想法</h3>
+<p>简单设想了一个两学期的C/C++语言课程，差不多正好对位C/C++语言程序设计+C/C++语言课设：</p>
+<p>第一学期：程序分析 + 简化C/C++语言 + 部分标准C/C++语言</p>
+<p>第二学期：标准C/C++语言，后续的课程为各个进阶主题的介绍研讨性质课程，学生分组完成一个对应主题的项目作业。</p>
+<h2 id="3">3 接下来</h2>
+<p>以上所提到的，只是一些粗糙的理解和想法，接下来我准备看些广受好评的C/C++语言课程或者计算机概论课程，比如中国大学mooc上翁恺老师的程序设计课和MIT 6.0001等等，了解它们是如何讲好这些内容的。也会去ACM SIGCSE里找找相关的研究。
+我想我能想到的事情多半早前就有人想过，他们或许也会留下些什么值得参考的东西。</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; 2023 <a href="https://github.com/HLXY-420"  target="_blank" rel="noopener">Open-BJUT</a>
+          </div>
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "navigation.tracking", "navigation.top", "search.highlight", "search.share", "search.suggest", "content.code.annotate"], "search": "assets/javascripts/workers/search.fcfe8b6d.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>
