@@ -33,12 +33,13 @@ theme:
       primary: default
       accent: cyan
 
+  custom_dir: overrides
+
 plugins: 
   - search
   - ezlinks:
       wikilinks: true
-  # custom_dir: overrides
-
+  
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
