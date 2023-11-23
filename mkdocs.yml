@@ -33,6 +33,10 @@ theme:
       primary: default
       accent: cyan
 
+plugins: 
+  - search
+  - ezlinks:
+      wikilinks: true
   # custom_dir: overrides
 
 markdown_extensions:
