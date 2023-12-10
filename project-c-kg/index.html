@@ -447,20 +447,20 @@
                 <h1 id="c">项目企划：C语言知识图谱</h1>
 <h2 id="1">1 背景</h2>
 <p>在<a href="../workon-list/">短期尝试</a>中，提到了不少打算实施的想法。但是几次尝试过后，我发现凭我一人的时间和精力并不足以实施它们。于是我开始尝试在周围联系志同道合者一同合作。
-正巧，这几天我担任助教的C语言课程的任课教师找到我，提出要做一个C语言课程内容知识图谱的想法——这与我的不少想法不谋而合，于是就有了这个文档，对应项目的GitHub repo也将在几天后更新出来。</p>
+正巧，这几天我担任助教的C语言课程的任课教师找到我，提出要做一个C语言课程内容知识图谱的想法——这与我的不少想法不谋而合，于是就有了这个文档，对应项目的GitHub repo: <a href="https://github.com/HLXY-420/C-knowledge-graph">https://github.com/HLXY-420/C-knowledge-graph</a>.</p>
 <h2 id="2">2 具体要做什么</h2>
-<p>知识图谱，即以图的形式，把知识“点”转化成一个个节点，把相关联的节点用边连接形成的图谱。汇聚成图的知识便于展示，也更契合知识间联系的本质。项目的核心就是以图的形式构建的知识网络，包括描述图的部分和展示图谱的部分。因为计划做成一个开源项目，也要便于所有人访问，形式的选择自然是网页。</p>
-<p>一张图谱所能包含的信息是有限的，对于查阅者，尤其是尚在学习中的查阅者，对每个知识节点内容的详细介绍和讲解是必不可少的。于是还理应有一个类似于Wiki的系统，安排有知识点的详细内容，类Wiki的形式也可以很好的利用图谱中的关系。</p>
+<p>知识图谱，即以图的形式，把知识“点”转化成一个个节点，把相关联的节点用边连接形成的图谱。汇聚成图的知识便于展示，也更契合知识间联系的本质。项目的核心就是以图的形式构建的知识网络，包括描述图的部分和展示图谱的部分。因为计划做成一个开源项目，也要便于所有人访问，呈现形式的选择自然是网页。</p>
+<p>单个图所能包含的信息是有限的，对于查阅者，尤其是尚在学习中的查阅者，对每个知识节点内容的详细介绍和讲解是必不可少的。于是还理应有一个类似于Wiki的系统，安排有知识点的详细内容，类Wiki的形式也可以很好的利用图谱中的关系。</p>
 <p>以上就是这个项目主干部分的结构，剩下两点是结合已有想法设想的附加结构：</p>
 <ol>
-<li>将知识点的讲解和练习结合，内嵌类似<a href="https://practice.rs">https://practice.rs</a>的可交互代码编辑器，并附有远程编译运行服务。</li>
-<li>将知识图谱与LLM结合，做一个更专业也有一定可解释能力的LLM助手，类似<a href="https://github.com/tomhartke/knowledge-graph-from-GPT">https://github.com/tomhartke/knowledge-graph-from-GPT</a>。</li>
+<li>将知识点的讲解和练习结合，内嵌类似<a href="https://practice.rs">https://practice.rs</a>的可交互代码编辑器，并附有远程编译运行服务。这是项目预期中必要的部分。</li>
+<li>将知识图谱与LLM结合，做一个更专业也有一定可解释能力的LLM助手，类似<a href="https://github.com/tomhartke/knowledge-graph-from-GPT">https://github.com/tomhartke/knowledge-graph-from-GPT</a>。这就是更长期的计划了，至少等到其他部分都完成。</li>
 </ol>
 <h2 id="3">3 初步技术选型</h2>
 <ol>
 <li>前端 + 大型图谱展示&amp;交互 + 易与现有常用前端框架结合 = <a href="https://www.sigmajs.org/">Sigma.js</a>。</li>
 <li>静态页面为主 + mdx支持 + react支持 + 类似文档静态页面生成器的省事程度 = <a href="https://astro.build/">Astro.js</a>。</li>
-<li>前端代码编辑器，Monaco or Ace， 尚未确定。</li>
+<li>前端代码编辑器，Monaco or Ace， 尚未确定，Monaco开销大但可支持更多功能，Ace开销小且有应用案例（<a href="https://practice.rs">https://practice.rs</a>）但是几乎仅支持编辑功能。</li>
 <li>远程编译运行服务 + 可自行部署 = <a href="https://wandbox.org/">Wandbox</a>。</li>
 </ol>
                 
